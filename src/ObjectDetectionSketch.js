@@ -8,10 +8,8 @@ export default function sketch(p) {
 
     let capture = null;
     let cocossdModel = null;
-
     let cocoDrawings = [];
     let faceDrawings = [];
-
 
     function showCocoSSDResults(results) {
         cocoDrawings = results;
@@ -41,8 +39,7 @@ export default function sketch(p) {
 
         capture = p.createCapture(constraints, () => {
         });
-
-
+        
         capture.id("video_element");
         capture.size(1280, 720);
         capture.hide();
@@ -99,7 +96,6 @@ export default function sketch(p) {
                 const confidencetext = "Gender: " + drawing.gender;
                 const textWidth = p.textWidth(confidencetext);
                 p.text(confidencetext, textX - textWidth - 10, textY - 60);
-
 
                 const agetext = "Age: " + drawing.age.toFixed(0);
                 const ageTextWidth = p.textWidth(agetext);
