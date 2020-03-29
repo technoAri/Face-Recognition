@@ -100,6 +100,7 @@ export default function sketch(p) {
 
                 const agetext = "Age: " + drawing.age.toFixed(0);
                 const ageTextWidth = p.textWidth(agetext);
+                
                 p.text(agetext, textX - ageTextWidth - 10, textY - 30);
 
                 const copiedExpression = drawing.expressions;
