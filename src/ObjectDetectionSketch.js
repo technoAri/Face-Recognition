@@ -78,7 +78,6 @@ export default function sketch(p) {
                 const itemTextWidth = p.textWidth(drawing.class);
                 
                 p.text(drawing.class, textX - itemTextWidth - 10, textY - 50);
-
                 p.text(confidenetext, textX - textWidth - 10, textY - 10);
                 p.strokeWeight(4);
                 p.stroke('rgb(100%,100%,100%)');
