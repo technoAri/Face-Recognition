@@ -2,6 +2,7 @@
 // import "p5/lib/addons/p5.dom";
 import * as cocoSsd from '@tensorflow-models/coco-ssd';
 import * as faceapi from 'face-api.js';
+
 const MODEL_URL = '/models'
 
 export default function sketch(p) {
@@ -74,8 +75,8 @@ export default function sketch(p) {
 
                 const confidenetext = "Confidence: " + drawing.score.toFixed(1);
                 const textWidth = p.textWidth(confidenetext);
-
                 const itemTextWidth = p.textWidth(drawing.class);
+                
                 p.text(drawing.class, textX - itemTextWidth - 10, textY - 50);
 
                 p.text(confidenetext, textX - textWidth - 10, textY - 10);
@@ -92,9 +93,9 @@ export default function sketch(p) {
 
                 const textX = drawing.detection.box._x + drawing.detection.box._width;
                 const textY = drawing.detection.box._y + drawing.detection.box._height;
-
                 const confidencetext = "Gender: " + drawing.gender;
                 const textWidth = p.textWidth(confidencetext);
+                
                 p.text(confidencetext, textX - textWidth - 10, textY - 60);
 
                 const agetext = "Age: " + drawing.age.toFixed(0);
@@ -108,7 +109,6 @@ export default function sketch(p) {
                 })
 
                 const max = Math.max(...expressions);
-
                 const expression_value = Object.keys(copiedExpression).filter((key) => {
                     return copiedExpression[key] === max;
                 })[0];
@@ -116,7 +116,6 @@ export default function sketch(p) {
                 const expressiontext = "Mood: " + expression_value;
                 const expressionWidth = p.textWidth(expressiontext);
                 p.text(expressiontext, textX - expressionWidth - 10, textY - 10);
-
                 p.strokeWeight(4);
                 p.stroke('rgb(100%,100%,100%)');
                 p.rect(drawing.detection.box._x, drawing.detection.box._y, drawing.detection.box._width, drawing.detection.box._height);
